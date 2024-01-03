@@ -1,0 +1,35 @@
+<main>
+    <h2>QR Code Feedback</h2>
+<link rel="stylesheet" href="./feedback-styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  
+    <!-- Caterer's Section to List Dishes -->
+    <section id="catererSection">
+        <h3>Caterer's Section</h3>
+        <form id="catererForm">
+            <label for="dishList">List of Dishes (comma-separated):</label>
+            <input type="text" id="dishList" name="dishList" required>
+            <button type="button" onclick="generateQRCode()">Generate QR Code</button>
+        </form>
+        <div id="catererQRCodeContainer"></div>
+    </section>
+
+    <hr>
+
+    <!-- User's Section to Provide Ratings -->
+    <section id="userSection">
+        <h3>User's Section</h3>
+        <p>Scan the QR code to provide feedback on the dishes:</p>
+        <div id="userQRCodeContainer">
+            <!-- QR Code will be dynamically generated here -->
+        </div>
+        <div id="ratingForm">
+            <h4>Rate the Dishes:</h4>
+            <!-- Dish ratings will be dynamically generated here -->
+            <button id="submitRatingBtn">Submit Ratings</button>
+        </div>
+    </section>
+</main>
+<script src="./feedback.js"></script>
