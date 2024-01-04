@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const middleware = require("./middleware");
 const routes = require("./routes");
-const MyModel = require("./documents");
+// const MyModel = require("./documents");
 
 const app = express();
 const PORT = 5000;
