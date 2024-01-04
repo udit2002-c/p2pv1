@@ -18,12 +18,17 @@ function generateCatererQRCode() {
     const dishListInput = document.getElementById('dishList');
     const catererQRCodeContainer = document.getElementById('catererQRCodeContainer');
 
-    // Simulate sending the dish list to the server to generate the QR code
+    // Get the text from the input
     const dishList = dishListInput.value;
-    const qrCodeImageUrl = `/api/generate-qr-code?dishes=${encodeURIComponent(dishList)}`;
+
+    // Create QR code instance
+    const qrCode = new QRCode(-1, QRCode.CorrectLevel.H);
+    qrCode.addData(dishList);
+    qrCode.make();
+
+    // Get QR code image data URI
+    const qrCodeImageUrl = qrCode.createDataURL();
 
     // Display the generated QR code in the catererQRCodeContainer
     catererQRCodeContainer.innerHTML = `<img src="${qrCodeImageUrl}" alt="Caterer's QR Code">`;
 }
-
-// ...
