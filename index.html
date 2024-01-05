@@ -11,66 +11,31 @@
       rel="stylesheet"
     />
     <title>Smart Food-Saving Tool</title>
-    <style>
-      /* Add this CSS code for the logout button */
-      .logout-button {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        padding: 10px;
-        background-color: white;
-        color: darkgreen;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-      }
-
-      .logout-button:hover {
-        background-color: darkgreen;
-        color: white;
-      }
-    </style>
   </head>
   <body>
     <header>
       <h1>Plate 2 Purpose</h1>
     </header>
-    
+
     <nav>
       <ul>
         <li><a href="weeklyreport.html">Plate Optimizer</a></li>
         <li><a href="feedingforward2.html">Feeding Forward</a></li>
-        <li><a href="feedback.html">QR Code Feedback</a></li>
+        <li><a href="feedback.html">User Feedback</a></li>
       </ul>
     </nav>
-    <div class="Welcome">
-      <p>
-      <div class="text">
-        
+    <main>
+      <div class="welcome">
+        <div class="intro">
+          Welcome to Plate 2 Purpose, your go-to smart food-saving tool. We
+          empower caterers with real-time data to minimize waste, optimize
+          menus, and connect with organizations like the Robin Hood Army.
+          Transform surplus food into purposeful nourishment. Join us at Plate 2
+          Purpose, where every meal makes a positive impact!
+        </div>
       </div>
-      <div class="intro">Welcome to Plate 2 Purpose, your go-to smart food-saving tool. We empower caterers with real-time data to minimize waste, optimize menus, and connect with organizations like the Robin Hood Army. Transform surplus food into purposeful nourishment. Join us at Plate 2 Purpose, where every meal makes a positive impact!</div>
-
-      
-      <div class="box">Plate Optimiser
-        
-      </div>
-      <div class="box">Feeding Forward
-        
-      </div>
-      <div class="box">QR-Feedback</div>
       <button class="logout-button" onclick="logout()">Logout</button>
-      
-
-    </div>
     </main>
+    <script src="script.js"></script>
   </body>
-  <script>
-    // Add this JavaScript function for logout
-    function logout() {
-      // Perform any logout logic here
-      // For example, redirecting to login.html
-      window.location.href = "login.html";
-    }
-  </script>
 </html>

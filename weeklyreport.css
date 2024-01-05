@@ -6,7 +6,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  background-image: url(plate\ optimizer\ \(1\).png);
+  background-image: url(plateOptimizer1.png);
 }
 
 main {
@@ -55,4 +55,19 @@ button:hover {
 #weeklyReportContainer {
   text-align: center;
   margin-bottom: 10px;
+}
+
+/* Add this new class for the report dialog box */
+.report-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.report-box p {
+  margin: 0;
+  color: darkgreen;
 }

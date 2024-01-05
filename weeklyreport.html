@@ -39,66 +39,25 @@
       </div>
       <button onclick="calculateAndDisplayReport()">Submit</button>
       <div id="weeklyReportContainer"></div>
-      <form id="report-form" >
+      <form id="report-form" onsubmit="submitReport(event)">
         <input
           type="text"
           id="userId"
           name="userId"
-          placeholder="User ID"
+          placeholder="Name"
           required
         />
-
         <input
           type="text"
           id="reportData"
           name="reportData"
-          placeholder="Report Data"
+          placeholder="Daily Average"
           required
         />
-        <button type="submit" >Show Report</button>
+        <button type="submit" id="showReportButton">Show Report</button>
       </form>
       <button onclick="goBack()">Go Back</button>
     </main>
-    <script>
-      function calculateAndDisplayReport() {
-        var totalWeight = 0;
-        var count = 0;
-
-        var daysOfWeek = [
-          "monday",
-          "tuesday",
-          "wednesday",
-          "thursday",
-          "friday",
-          "saturday",
-          "sunday",
-        ];
-
-        for (var i = 0; i < daysOfWeek.length; i++) {
-          var dayValue = parseInt(document.getElementById(daysOfWeek[i]).value);
-          if (dayValue > 0) {
-            totalWeight += dayValue;
-            count++;
-          }
-        }
-
-        var excessWeightPerDay = totalWeight / count;
-
-        var content = `
-                <p>Total number of plates this week is ${totalWeight} .</p>
-                <p>There is ${excessWeightPerDay.toFixed(
-                  2
-                )} excess plates per day.</p>
-            `;
-
-        document.getElementById("weeklyReportContainer").innerHTML = content;
-      }
-
-      function goBack() {
-        // Redirect back to the plate optimizer page
-        window.location.href = "index.html";
-      }
-    </script>
     <script src="./weeklyreport.js"></script>
   </body>
 </html>

@@ -1,34 +1,31 @@
-// ...
+document.getElementById('DishForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-const qr = require('qrcode');
+    const dishes = document.getElementById('Dishes').value.split(',');
+    const DishRating = document.getElementById('DishRating');
 
-// ...
+    DishRating.innerHTML = '';
 
-// Set up the endpoint to generate QR code based on the dish list
-app.get('/api/generate-qr-code', async (req, res) => {
-    try {
-        const dishList = req.query.dishes || '';
-        const qrCodeDataUrl = await generateQRCode(dishList);
-        res.send(qrCodeDataUrl);
-    } catch (error) {
-        console.error('Error in /api/generate-qr-code:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
+    dishes.forEach(dish => {
+        const row = document.createElement('div');
+        row.classList.add('Dish-row');
+
+        const name = document.createElement('span');
+        name.classList.add('Dish-name');
+        name.textContent = dish.trim();
+
+        const rating = document.createElement('select');
+        rating.classList.add('Dish-rating');
+
+        for (let i = 1; i <= 5; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            rating.appendChild(option);
+        }
+
+        row.appendChild(name);
+        row.appendChild(rating);
+        DishRating.appendChild(row);
+    });
 });
-
-async function generateQRCode(data) {
-    try {
-        const options = {
-            errorCorrectionLevel: 'H',
-            type: 'image/png',
-            quality: 0.92,
-            margin: 1,
-        };
-
-        return await qr.toDataURL(data, options);
-    } catch (error) {
-        throw error;
-    }
-}
-
-// ...

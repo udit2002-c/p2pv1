@@ -1,82 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QR Code Feedback</title>
-    <link rel="stylesheet" href="./feedback-styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="feedback-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <style>
-        /* Your additional styles go here */
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;800&family=Poppins&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <main>
-        <h2>QR Code Feedback</h2>
-
-        <!-- Caterer's Section to List Dishes -->
-        <section id="catererSection">
-            <h3>Caterer's Section</h3>
-            <form id="catererForm">
-                <label for="dishList">List of Dishes (comma-separated):</label>
-                <input type="text" id="dishList" name="dishList" required>
-                <button type="button" onclick="generateCatererQRCode()">Generate QR Code</button>
+    <header>
+        <h1 class="f1">User Feedback</h1>
+        <div class="Form-container" id="DishFormContainer">
+            <form id="DishForm">
+                <legend>Food Review Form</legend>
+                <label for="Dishes">Enter Dishes:</label>
+                <input type="text" id="Dishes" name="Dishes" required>
+                <button type="submit">Submit</button>
             </form>
-            <div id="catererQRCodeContainer"></div>
-        </section>
-
-        <hr>
-
-        <!-- User's Section to Provide Ratings -->
-        <section id="userSection">
-            <h3>User's Section</h3>
-            <p>Scan the QR code to provide feedback on the dishes:</p>
-            <div id="userQRCodeContainer">
-                <!-- QR Code will be dynamically generated here -->
-            </div>
-            <div id="ratingForm">
-                <h4>Rate the Dishes:</h4>
-                <!-- Dish ratings will be dynamically generated here -->
-                <button id="submitRatingBtn">Submit Ratings</button>
-            </div>
-        </section>
-    </main>
-    <script src="./feedback.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('submitRatingBtn').addEventListener('click', function () {
-                // Handle the submission of dish ratings
-                const ratings = collectDishRatings(dishes);
-                // Send the ratings data to the backend using AJAX or Fetch API
-                // Display success message or handle errors
-            });
-
-            document.getElementById('catererForm').addEventListener('submit', function (event) {
-                event.preventDefault();
-                generateCatererQRCode();
-            });
-        });
-
-        function generateCatererQRCode() {
-            const dishListInput = document.getElementById('dishList');
-            const catererQRCodeContainer = document.getElementById('catererQRCodeContainer');
-
-            // Get the text from the input
-            const dishList = dishListInput.value;
-
-            // Create QR code instance
-            const qrCode = new QRCode(catererQRCodeContainer, {
-                text: dishList,
-                width: 128,
-                height: 128
-            });
-        }
-    </script>
+        </div>
+        <div id="DishRating"></div>
+    </header>
+    <script src="feedback-server.js"></script>
 </body>
-
 </html>
