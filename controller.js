@@ -8,4 +8,12 @@ const controller = {
   },
 };
 
-module.exports = controller;
+// async getReport = (req,res) => {
+
+// }
+
+// async submitReport = (req,res) => {
+  
+// }
+
+// module.exports = {getReport,submitReport}
