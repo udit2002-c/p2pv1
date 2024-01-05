@@ -12,7 +12,7 @@ async function submitReport(event) {
   };
 
   try {
-    var response = await fetch("http://localhost:5000/submitReport", {
+    var response = await fetch("http://localhost:5000/api/save-data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
